@@ -1,0 +1,32 @@
+cloud:
+  aws:
+    credentials:
+      access-key: ${CLOUD_AWS_CREDENTIALS_ACCESS-KEY}
+      secret-key: ${CLOUD_AWS_CREDENTIALS_SECRET-KEY}
+    region:
+      static: ${CLOUD_AWS_REGION_STATIC:ap-northeast-1}
+    stack:
+      auto: false
+
+app:
+  aws:
+    s3:
+      bucket-name: ${APP_AWS_S3_BUCKET-NAME}
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+server:
+  port: 8080
+
+logging:
+  level:
+    com:
+      example:
+        s3storage: DEBUG
+    software:
+      amazon:
+        awssdk: INFO
